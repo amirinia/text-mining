@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
-
+import nltk
 from nltk.corpus import stopwords
 nltk.download('stopwords')
 from nltk.cluster.util import cosine_distance
@@ -85,4 +85,4 @@ def generate_summary(file_name, top_n=5):
     print("Summarize Text: \n", ". ".join(summarize_text))
 
 # let's begin
-generate_summary( "C:/Users/100730451/OneDrive/Documents/Python/textmining/msft.txt", 2)
+generate_summary( "msft.txt", 2)
