@@ -1,6 +1,6 @@
 import nltk
-nltk.download('stopwords')
-nltk.download('punkt')
+#nltk.download('stopwords')
+#nltk.download('punkt')
 
 from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer
@@ -33,7 +33,7 @@ def _create_frequency_table(text_string) -> dict:
 
     return freqTable
 # 1 Create the word frequency table
-freq_table = _create_frequency_table(text)
+
 
 '''
 We already have a sentence tokenizer, so we just need 
@@ -41,7 +41,6 @@ to run the sent_tokenize() method to create the array of sentences.
 '''
 
 # 2 Tokenize the sentences
-sentences = sent_tokenize(text)
 
 def _score_sentences(sentences, freqTable) -> dict:
     sentenceValue = dict()
@@ -60,7 +59,6 @@ def _score_sentences(sentences, freqTable) -> dict:
     return sentenceValue
 
 # 3 Important Algorithm: score the sentences
-sentence_scores = _score_sentences(sentences, freq_table)
 
 def _find_average_score(sentenceValue) -> int:
     sumValues = 0
@@ -73,7 +71,6 @@ def _find_average_score(sentenceValue) -> int:
     return average
 
 # 4 Find the threshold
-threshold = _find_average_score(sentence_scores)
 
 
 def _generate_summary(sentences, sentenceValue, threshold):
@@ -87,7 +84,17 @@ def _generate_summary(sentences, sentenceValue, threshold):
 
     return summary
 
-# 5 Important Algorithm: Generate the summary
-summary = _generate_summary(sentences, sentence_scores, 1.5 * threshold)
 
-print(summary)
+
+# 5 Important Algorithm: Generate the summary
+
+def summerizze(text,speed=1.5):
+    
+    freq_table = _create_frequency_table(text)
+    sentences = sent_tokenize(text)
+    sentence_scores = _score_sentences(sentences, freq_table)
+    threshold = _find_average_score(sentence_scores)
+    summary = _generate_summary(sentences, sentence_scores, speed * threshold)
+    return summary
+
+#print(summerizze(text,1.5))
