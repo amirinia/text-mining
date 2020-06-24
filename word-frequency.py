@@ -2,8 +2,7 @@ import nltk
 
 nltk.download('punkt')  
 from nltk.tokenize import sent_tokenize
-text="""Hello Mr. Smith, how are you doing today? The weather is great, and city is awesome.
-The sky is pinkish-blue. You shouldn't eat cardboard"""
+text="""Our unique team approach gives our clients an advantage and sets our services above the rest!"""
 tokenized_text=sent_tokenize(text)
 print(tokenized_text)
 
@@ -60,7 +59,7 @@ word = "flying"
 print("Lemmatized Word:",lem.lemmatize(word,"v"))
 print("Stemmed Word:",stem.stem(word))
 
-sent = "Albert Einstein was born in Ulm, Germany in 1879."
+sent = "Our unique team approach gives our clients an advantage and sets our services above the rest!"
 tokens=nltk.word_tokenize(sent)
 print(tokens)
 
@@ -118,3 +117,10 @@ from sklearn import metrics
 clf = MultinomialNB().fit(X_train, y_train)
 predicted= clf.predict(X_test)
 print("MultinomialNB Accuracy:",metrics.accuracy_score(y_test, predicted))
+
+
+#pos tagging
+sent = "Albert Einstein was born in Ulm, Germany in 1879."
+tokens=nltk.word_tokenize(sent)
+print(tokens)
+nltk.pos_tag(tokens)

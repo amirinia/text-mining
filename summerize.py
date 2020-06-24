@@ -92,10 +92,11 @@ def summerizze(text,speed=1.5):
     summary = _generate_summary(sentences, sentence_scores, speed * threshold)
     return summary
 
+file = "temp.txt" #"text.txt"
 
 import os
-os.path.isfile("text.txt")
-f = open("text.txt")
+os.path.isfile(file)
+f = open(file ,encoding='utf-8' )
 text = f.read()
 #print(text)
-#print(summerizze(text,1.5))
+print(summerizze(text, 1))
